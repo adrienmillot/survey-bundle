@@ -1,0 +1,20 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <mapped-superclass name="amillot\SurveyBundle\Entity\AbstractQuestion" repository-class="amillot\SurveyBundle\Repository\QuestionRepository">
+        <id name="id" type="string" column="id">
+            <generator strategy="UUID"/>
+        </id>
+
+        <field name="label" column="label" type="text" />
+        <field name="weight" column="weight" type="integer" nullable="true" />
+
+        <many-to-one field="survey" target-entity="amillot\SurveyBundle\Entity\Survey" inversed-by="questions">
+            <cascade><cascade-persist /></cascade>
+            <join-column name="survey_id" referenced-column-name="id" />
+        </many-to-one>
+    </mapped-superclass>
+
+</doctrine-mapping>
