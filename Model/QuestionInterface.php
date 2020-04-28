@@ -12,4 +12,15 @@ interface QuestionInterface extends LabellableInterface,
                                     SurveyAwareInterface,
                                     WeightableInterface
 {
+    /**
+     * @return QuestionSubjectInterface|null
+     */
+    public function getAuthor(): ?QuestionSubjectInterface;
+
+    /**
+     * @param QuestionSubjectInterface|null $prmAuthor
+     *
+     * @return QuestionInterface
+     */
+    public function setAuthor(?QuestionSubjectInterface $prmAuthor): QuestionInterface;
 }
