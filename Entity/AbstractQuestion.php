@@ -6,13 +6,14 @@ namespace amillot\SurveyBundle\Entity;
 
 use amillot\SurveyBundle\Model\QuestionInterface;
 use amillot\SurveyBundle\Model\QuestionSubjectInterface;
+use amillot\SurveyBundle\Traits\CategoryAware;
 use amillot\SurveyBundle\Traits\Labellable;
 use amillot\SurveyBundle\Traits\SurveyAware;
 use amillot\SurveyBundle\Traits\Weightable;
 
 abstract class AbstractQuestion implements QuestionInterface
 {
-    use Labellable, SurveyAware, Weightable;
+    use CategoryAware, Labellable, SurveyAware, Weightable;
 
     protected $author;
 
