@@ -9,4 +9,13 @@ use amillot\SurveyBundle\Model\Traits\QuestionAwareInterface;
 
 interface AnswerInterface extends ProposalAwareInterface, QuestionAwareInterface
 {
+    /**
+     * {@inheritDoc}
+     */
+    public function getAuthor(): ?AnswerSubjectInterface;
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setAuthor(?AnswerSubjectInterface $prmAuthor): AnswerInterface;
 }
