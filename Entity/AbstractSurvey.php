@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace amillot\SurveyBundle\Entity;
 
 use amillot\SurveyBundle\Model\SurveyInterface;
+use amillot\SurveyBundle\Model\SurveySubjectInterface;
 use amillot\SurveyBundle\Traits\Labellable;
 
 abstract class AbstractSurvey implements SurveyInterface
@@ -26,11 +27,29 @@ abstract class AbstractSurvey implements SurveyInterface
     }
 
     /**
+     * {@inheritDoc}
+     */
+    public function getAuthor(): ?SurveySubjectInterface
+    {
+        return $this->author;
+    }
+
+    /**
      * @return mixed
      */
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setAuthor(?SurveySubjectInterface $prmAuthor): SurveyInterface
+    {
+        $this->author = $prmAuthor;
+
+        return $this;
     }
 }
 
