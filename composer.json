@@ -11,6 +11,7 @@
   ],
   "require": {
     "php": "^7.4",
+    "gedmo/doctrine-extensions": "^2.4",
     "symfony/http-kernel": "^5.0"
   },
   "require-dev": {},
