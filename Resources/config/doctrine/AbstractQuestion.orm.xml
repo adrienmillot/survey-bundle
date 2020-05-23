@@ -11,6 +11,10 @@
         <field name="label" column="label" type="text" />
         <field name="weight" column="weight" type="integer" nullable="true" />
 
+        <many-to-one field="author" target-entity="amillot\SurveyBundle\Model\QuestionSubjectInterface" inversed-by="questions">
+            <join-column name="author_id" referenced-column-name="id" />
+        </many-to-one>
+
         <many-to-one field="survey" target-entity="amillot\SurveyBundle\Entity\Survey" inversed-by="questions">
             <cascade><cascade-persist /></cascade>
             <join-column name="survey_id" referenced-column-name="id" />
