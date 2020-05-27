@@ -4,6 +4,7 @@
                           https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
     <entity name="amillot\SurveyBundle\Entity\Proposal" table="proposals">
+        <one-to-many field="answers" target-entity="amillot\SurveyBundle\Model\AnswerInterface" mapped-by="proposal" />
     </entity>
 
 </doctrine-mapping>
