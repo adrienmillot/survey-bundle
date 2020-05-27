@@ -1,0 +1,14 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <mapped-superclass name="amillot\SurveyBundle\Entity\AbstractCategory" repository-class="amillot\SurveyBundle\Repository\CategoryRepository">
+        <id name="id" type="string" column="id">
+            <generator strategy="UUID"/>
+        </id>
+
+        <field name="label" column="label" type="string" />
+    </mapped-superclass>
+
+</doctrine-mapping>
