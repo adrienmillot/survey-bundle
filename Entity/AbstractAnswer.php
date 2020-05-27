@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace amillot\SurveyBundle\Entity;
 
 use amillot\SurveyBundle\Model\AnswerInterface;
+use amillot\SurveyBundle\Model\AnswerSubjectInterface;
 use amillot\SurveyBundle\Traits\ProposalAware;
 use amillot\SurveyBundle\Traits\QuestionAware;
 use Gedmo\Timestampable\Traits\Timestampable;
@@ -26,6 +27,14 @@ abstract class AbstractAnswer implements AnswerInterface
     }
 
     /**
+     * {@inheritDoc}
+     */
+    public function getAuthor(): ?AnswerSubjectInterface
+    {
+        return $this->author;
+    }
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -42,5 +51,15 @@ abstract class AbstractAnswer implements AnswerInterface
     public function preUpdate()
     {
         $this->updatedAt = new \DateTime();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setAuthor(?AnswerSubjectInterface $prmAuthor): AnswerInterface
+    {
+        $this->author = $prmAuthor;
+
+        return $this;
     }
 }

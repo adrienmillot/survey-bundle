@@ -11,6 +11,10 @@
         <field name="createdAt" column="created_at" type="datetime" />
         <field name="updatedAt" column="updated_at" type="datetime" />
 
+        <many-to-one field="author" target-entity="amillot\SurveyBundle\Model\AnswerSubjectInterface" inversed-by="answers">
+            <join-column name="author_id" referenced-column-name="id" />
+        </many-to-one>
+
         <many-to-one field="proposal" target-entity="amillot\SurveyBundle\Entity\Proposal" inversed-by="answers">
             <join-column name="proposal_id" referenced-column-name="id" />
         </many-to-one>
