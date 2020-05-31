@@ -1,0 +1,28 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <mapped-superclass name="amillot\SurveyBundle\Entity\AbstractAnswer" repository-class="amillot\SurveyBundle\Repository\AnswerRepository">
+        <id name="id" type="string" column="id">
+            <generator strategy="UUID"/>
+        </id>
+
+        <field name="createdAt" column="created_at" type="datetime" />
+        <field name="updatedAt" column="updated_at" type="datetime" />
+
+        <many-to-one field="proposal" target-entity="amillot\SurveyBundle\Entity\Proposal" inversed-by="answers">
+            <join-column name="proposal_id" referenced-column-name="id" />
+        </many-to-one>
+
+        <many-to-one field="question" target-entity="amillot\SurveyBundle\Entity\Question" inversed-by="answers">
+            <join-column name="question_id" referenced-column-name="id" />
+        </many-to-one>
+
+        <lifecycle-callbacks>
+            <lifecycle-callback type="prePersist" method="prePersist"/>
+            <lifecycle-callback type="preUpdate" method="preUpdate"/>
+        </lifecycle-callbacks>
+    </mapped-superclass>
+
+</doctrine-mapping>

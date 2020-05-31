@@ -4,6 +4,7 @@
                           https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
     <entity name="amillot\SurveyBundle\Entity\Question" table="questions">
+        <one-to-many field="answers" target-entity="amillot\SurveyBundle\Model\AnswerInterface" mapped-by="question" fetch="EAGER" />
         <one-to-many field="proposals" target-entity="amillot\SurveyBundle\Entity\Proposal" mapped-by="question">
             <cascade>
                 <cascade-persist/>
