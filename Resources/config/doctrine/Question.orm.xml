@@ -3,8 +3,7 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                           https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="amillot\SurveyBundle\Entity\Survey" table="surveys">
-        <one-to-many field="questions" target-entity="amillot\SurveyBundle\Entity\Question" mapped-by="survey" />
+    <entity name="amillot\SurveyBundle\Entity\Question" table="questions">
     </entity>
 
 </doctrine-mapping>
