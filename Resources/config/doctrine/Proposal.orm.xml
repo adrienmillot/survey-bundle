@@ -3,12 +3,7 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                           https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="amillot\SurveyBundle\Entity\Question" table="questions">
-        <one-to-many field="proposals" target-entity="amillot\SurveyBundle\Entity\Proposal" mapped-by="question">
-            <cascade>
-                <cascade-persist/>
-            </cascade>
-        </one-to-many>
+    <entity name="amillot\SurveyBundle\Entity\Proposal" table="proposals">
     </entity>
 
 </doctrine-mapping>
